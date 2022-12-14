@@ -1,8 +1,11 @@
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const { User, joiSchema } = require("../../models/user");
 const createError = require("../../helpers/createError");
 
-const login = async (req, res) => {
+const { SECRET_KEY } = process.env;
+
+const signin = async (req, res) => {
   const { error } = joiSchema.validate(req.body);
   if (error) {
     throw createError(400, error.message);
@@ -20,12 +23,21 @@ const login = async (req, res) => {
     throw createError(401, "Email or password is wrong");
   }
 
+  // Create token
+  const payload = {
+    id: user._id,
+  };
+
+  const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "24h" });
+
+  await User.findByIdAndUpdate(user._id, { token });
+
   res.status(201).json({
-    token: user.token,
+    token,
     user: {
       email: user.email,
     },
   });
 };
 
-module.exports = login;
+module.exports = signin;
