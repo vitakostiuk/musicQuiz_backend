@@ -11,5 +11,6 @@ router.post("/signup", tryCatchWrapper(controllers.signup));
 router.post("/signin", tryCatchWrapper(controllers.signin));
 router.get("/current", login, tryCatchWrapper(controllers.current));
 router.get("/logout", login, tryCatchWrapper(controllers.logout));
+router.patch("/forgot-password", tryCatchWrapper(controllers.sendPassword));
 
 module.exports = router;

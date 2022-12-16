@@ -5,7 +5,7 @@ const emailRegexp = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
 const joiSchema = Joi.object({
   email: Joi.string().pattern(emailRegexp).required(),
-  password: Joi.string().min(6).required(),
+  password: Joi.string().min(6),
 });
 
 const userSchema = new Schema(
