@@ -6,7 +6,7 @@ const createError = require("../../helpers/createError");
 const { SECRET_KEY } = process.env;
 
 const signup = async (req, res) => {
-  const { error } = joiSchema.validate(req.body);
+  const { error } = joiSchema.joiRegisterSchema.validate(req.body);
   if (error) {
     throw createError(400, error.message);
   }

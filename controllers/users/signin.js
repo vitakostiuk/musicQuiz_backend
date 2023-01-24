@@ -6,7 +6,7 @@ const createError = require("../../helpers/createError");
 const { SECRET_KEY } = process.env;
 
 const signin = async (req, res) => {
-  const { error } = joiSchema.validate(req.body);
+  const { error } = joiSchema.joiSigninSchema.validate(req.body);
   if (error) {
     throw createError(400, error.message);
   }
@@ -14,6 +14,7 @@ const signin = async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
+  console.log("user", user);
   if (!user) {
     throw createError(401, "Email or password is wrong");
   }

@@ -3,7 +3,7 @@ const Joi = require("joi");
 
 // Схема валідації для додавання LVLCompleteInfo
 const addLVLCompleteInfoSchema = Joi.object({
-  isRoboQuizMode: oi.boolean().required(),
+  isRoboQuizMode: Joi.boolean().required(),
   level: Joi.number().required(),
   time: Joi.number().required(),
 });
@@ -27,6 +27,9 @@ const LVLCompleteInfoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "user",
     // тут вказуємо, з якої колекції цей id
+  },
+  user: {
+    type: Object,
   },
 });
 
