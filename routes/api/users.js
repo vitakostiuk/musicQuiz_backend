@@ -12,5 +12,6 @@ router.post("/signin", tryCatchWrapper(controllers.signin));
 router.get("/current", login, tryCatchWrapper(controllers.current));
 router.get("/logout", login, tryCatchWrapper(controllers.logout));
 router.patch("/forgot-password", tryCatchWrapper(controllers.sendPassword));
+router.post("/google", tryCatchWrapper(controllers.googleLogin));
 
 module.exports = router;

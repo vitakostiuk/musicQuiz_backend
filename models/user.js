@@ -31,12 +31,15 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      minlength: 6,
-      required: [true, "Password is required"],
+      // minlength: 6,
+      // required: [true, "Password is required"],
     },
     token: {
       type: String,
       default: null,
+    },
+    avatarURL: {
+      type: String,
     },
   },
   { versionKey: false, timestamps: true }

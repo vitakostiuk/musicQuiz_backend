@@ -22,6 +22,7 @@ const signup = async (req, res) => {
   // if (!user) in database
   // -1- create user in database
   const result = await User.create(req.body);
+  // console.log("result", result);
 
   // hash password
   const hashPassword = await bcrypt.hash(password, 10);
@@ -37,6 +38,7 @@ const signup = async (req, res) => {
     ...req.body,
     password: hashPassword,
     token,
+    avatarURL: "",
   });
 
   res.status(201).json({

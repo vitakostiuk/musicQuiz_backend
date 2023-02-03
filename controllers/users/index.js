@@ -3,6 +3,7 @@ const signin = require("./signin");
 const current = require("./current");
 const logout = require("./logout");
 const sendPassword = require("./sendPassword");
+const googleLogin = require("./googleLogin");
 
 module.exports = {
   signup,
@@ -10,4 +11,5 @@ module.exports = {
   current,
   logout,
   sendPassword,
+  googleLogin,
 };
