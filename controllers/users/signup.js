@@ -45,6 +45,7 @@ const signup = async (req, res) => {
     token,
     user: {
       email: result.email,
+      id: result._id,
     },
   });
 };

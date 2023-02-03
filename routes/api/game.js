@@ -9,6 +9,7 @@ const tryCatchWrapper = require("../../helpers/tryCatchWrapper");
 const router = express.Router();
 
 router.get("/", tryCatchWrapper(controllers.getAllEng));
+router.get("/:userID", login, tryCatchWrapper(controllers.getAllEngByUser));
 router.post("/", login, tryCatchWrapper(controllers.addLVLCompleteInfoEN));
 
 module.exports = router;
