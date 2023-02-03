@@ -1,7 +1,7 @@
 const { Game, joiSchemas } = require("../../models/game");
 const createError = require("../../helpers/createError");
 
-const addLVLCompleteInfo = async (req, res) => {
+const addLVLCompleteInfoEN = async (req, res) => {
   console.log(req.body);
   const { error } = joiSchemas.add.validate(req.body);
   if (error) {
@@ -16,4 +16,4 @@ const addLVLCompleteInfo = async (req, res) => {
   res.status(201).json(result);
 };
 
-module.exports = addLVLCompleteInfo;
+module.exports = addLVLCompleteInfoEN;

@@ -1,7 +1,10 @@
-const getAll = require("./getAll");
-const addLVLCompleteInfo = require("./addLVLCompleteInfo");
-
+const getAllUkr = require("./getAllUkr");
+const getAllEng = require("./getAllEng");
+const addLVLCompleteInfoEN = require("./addLVLCompleteInfoEN");
+const addLVLCompleteInfoUKR = require("./addLVLCompleteInfoUKR");
 module.exports = {
-  getAll,
-  addLVLCompleteInfo,
+  getAllUkr,
+  getAllEng,
+  addLVLCompleteInfoEN,
+  addLVLCompleteInfoUKR,
 };
