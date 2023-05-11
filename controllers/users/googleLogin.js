@@ -18,6 +18,7 @@ const googleLogin = async (req, res) => {
       user: {
         email: user.email,
         avatarURL: user.avatarURL,
+        id: user._id,
       },
     });
   }
@@ -46,6 +47,7 @@ const googleLogin = async (req, res) => {
       user: {
         email: result.email,
         avatarURL: result.avatarURL,
+        id: result._id,
       },
     });
   }

@@ -14,6 +14,10 @@ const joiSigninSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
+const joiEmailSchema = Joi.object({
+  email: Joi.string().pattern(emailRegexp).required(),
+});
+
 const userSchema = new Schema(
   {
     name: {
@@ -48,6 +52,7 @@ const userSchema = new Schema(
 const joiSchema = {
   joiRegisterSchema,
   joiSigninSchema,
+  joiEmailSchema,
 };
 
 const User = model("user", userSchema);
