@@ -13,8 +13,14 @@ const googleLogin = async (req, res) => {
   if (user) {
     await user.updateOne({ avatarURL });
 
+    // create token
+    const payload = {
+      id: user._id,
+    };
+    const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "24h" });
+
     res.status(201).json({
-      token: user.token,
+      token: user.token ? user.token : token,
       user: {
         email: user.email,
         avatarURL: user.avatarURL,
