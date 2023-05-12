@@ -12,15 +12,20 @@ const googleLogin = async (req, res) => {
 
   if (user) {
     await user.updateOne({ avatarURL });
-
     // create token
     const payload = {
       id: user._id,
     };
     const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "24h" });
 
+    if (!user.token) {
+      await user.updateOne({ token });
+    }
+
+    const result = await User.findOne({ email });
+
     res.status(201).json({
-      token: user.token ? user.token : token,
+      token: result.token,
       user: {
         email: user.email,
         avatarURL: user.avatarURL,
