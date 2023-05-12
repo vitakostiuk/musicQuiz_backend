@@ -41,11 +41,14 @@ const signup = async (req, res) => {
     avatarURL: "",
   });
 
+  const finalUser = await User.findOne({ token });
+
   res.status(201).json({
     token,
     user: {
       email: result.email,
       id: result._id,
+      avatarURL: finalUser.avatarURL,
     },
   });
 };

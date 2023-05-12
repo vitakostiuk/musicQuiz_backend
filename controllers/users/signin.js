@@ -33,11 +33,14 @@ const signin = async (req, res) => {
 
   await User.findByIdAndUpdate(user._id, { token });
 
+  const finalUser = await User.findOne({ token });
+
   res.status(201).json({
     token,
     user: {
       email: user.email,
       id: user._id,
+      avatarURL: finalUser.avatarURL,
     },
   });
 };
