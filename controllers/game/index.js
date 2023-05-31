@@ -4,6 +4,8 @@ const addLVLCompleteInfoEN = require("./addLVLCompleteInfoEN");
 const addLVLCompleteInfoUKR = require("./addLVLCompleteInfoUKR");
 const getAllEngByUser = require("./getAllEngByUser");
 const getAllUkrByUser = require("./getAllUkrByUser");
+const removeByIdUKR = require("./removeByIdUKR");
+const removeByIdEN = require("./removeByIdEN");
 
 module.exports = {
   getAllUkr,
@@ -12,4 +14,6 @@ module.exports = {
   addLVLCompleteInfoUKR,
   getAllEngByUser,
   getAllUkrByUser,
+  removeByIdUKR,
+  removeByIdEN,
 };

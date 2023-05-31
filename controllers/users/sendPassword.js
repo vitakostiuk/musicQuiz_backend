@@ -6,7 +6,7 @@ const sendPasswordTemplate = require("../../helpers/sendPasswordTemplate");
 const { User, joiSchema } = require("../../models/user");
 
 const sendPassword = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const { error } = joiSchema.joiEmailSchema.validate(req.body);
   if (error) {
     throw createError(400, error.message);
