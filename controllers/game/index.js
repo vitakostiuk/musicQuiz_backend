@@ -6,6 +6,8 @@ const getAllEngByUser = require("./getAllEngByUser");
 const getAllUkrByUser = require("./getAllUkrByUser");
 const removeByIdUKR = require("./removeByIdUKR");
 const removeByIdEN = require("./removeByIdEN");
+const editLevelByIdEN = require("./editLevelByIdEN");
+const editLevelByIdUKR = require("./editLevelByIdUKR");
 
 module.exports = {
   getAllUkr,
@@ -16,4 +18,6 @@ module.exports = {
   getAllUkrByUser,
   removeByIdUKR,
   removeByIdEN,
+  editLevelByIdEN,
+  editLevelByIdUKR,
 };
